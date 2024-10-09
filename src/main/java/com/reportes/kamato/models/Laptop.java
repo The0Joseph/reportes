@@ -7,18 +7,27 @@ import lombok.Setter;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "ComponenteEquipo")
+@Table(name = "Laptop")
 
 @Getter
 @Setter
 
-public class ComponenteEquipo {
-
+public class Laptop {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
+    private String color;
+    private String number_serie;
+    private String system_software;
     private LocalDate date_acquired;
+
+    @ManyToOne
+    @JoinColumn(name = "equipo_id")
+    private Equipo equipo;
+
+    @ManyToOne
+    @JoinColumn(name = "procesador_id")
+    private Procesador procesador;
 
     @ManyToOne
     @JoinColumn(name = "marca_equipo_id")
@@ -28,7 +37,4 @@ public class ComponenteEquipo {
     @JoinColumn(name = "modelo_equipo_id")
     private ModeloEquipo modelo_equipo;
 
-    @ManyToOne
-    @JoinColumn(name = "equipo_id")
-    private Equipo equipo;
 }

@@ -21,4 +21,9 @@ public class ModeloEquipo {
     @OneToMany(mappedBy = "modelo_equipo", cascade = CascadeType.ALL)
     private List<ComponenteEquipo> componenteEquipos;
 
+    @OneToMany(mappedBy = "modelo_equipo", cascade = CascadeType.ALL)
+    private List<Laptop> laptops;
+
+
+
 }

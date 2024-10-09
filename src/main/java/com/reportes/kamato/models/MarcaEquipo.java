@@ -20,4 +20,7 @@ public class MarcaEquipo {
 
     @OneToMany(mappedBy = "marca_equipo", cascade = CascadeType.ALL)
     private List<ComponenteEquipo> componenteEquipos;
+
+    @OneToMany(mappedBy = "marca_equipo", cascade = CascadeType.ALL)
+    private List<Laptop> laptops;
 }

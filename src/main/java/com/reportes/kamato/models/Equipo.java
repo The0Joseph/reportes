@@ -9,10 +9,10 @@ import java.util.List;
 
 @Entity
 
+@Table(name = "Equipo")
+
 @Getter
 @Setter
-
-@Table(name = "Equipo")
 
 public  class Equipo {
     @Id
@@ -37,5 +37,10 @@ public  class Equipo {
 
     @OneToMany(mappedBy = "equipo", cascade = CascadeType.ALL)
     private List<ComponenteEquipo> componenteEquipos;
+
+    @OneToMany(mappedBy = "equipo", cascade = CascadeType.ALL)
+    private List<Laptop> laptops;
+
+
 
 }
