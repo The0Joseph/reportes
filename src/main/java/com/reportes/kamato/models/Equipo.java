@@ -41,6 +41,8 @@ public  class Equipo {
     @OneToMany(mappedBy = "equipo", cascade = CascadeType.ALL)
     private List<Laptop> laptops;
 
+    @OneToMany(mappedBy = "equipo", cascade = CascadeType.ALL)
+    private List<Computadora> computadoras;
 
 
 }

@@ -28,4 +28,5 @@ public class ProcesadorController {
     public Procesador guardar(Procesador procesador){
         return procesadorService.save(procesador);
     }
+
 }

@@ -19,4 +19,8 @@ public class Procesador {
 
     @OneToMany(mappedBy = "procesador", cascade = CascadeType.ALL)
     private List<Laptop> laptops;
+
+    @OneToMany(mappedBy = "procesador", cascade = CascadeType.ALL)
+    private List<Computadora> computadoras;
+
 }
