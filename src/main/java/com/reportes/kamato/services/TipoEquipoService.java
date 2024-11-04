@@ -12,15 +12,21 @@ import java.util.List;
 public class TipoEquipoService {
 
     @Autowired
-    TipoEquipoRepository categoriaRepository;
+    TipoEquipoRepository tipoEquipoRepository;
 
     public List<TipoEquipo> getAll (){
-        return (List<TipoEquipo>) categoriaRepository.findAll();
+        return (List<TipoEquipo>) tipoEquipoRepository.findAll();
     }
 
 
-    public TipoEquipo save(TipoEquipo categoria){
-        return categoriaRepository.save(categoria);
+    public TipoEquipo save(TipoEquipo tipoEquipo){
+        return tipoEquipoRepository.save(tipoEquipo);
     }
+
+
+    public TipoEquipo getById(Long id) { return tipoEquipoRepository.findById(id).orElse(null); }
+
+
+    public void deleteById(Long id) { tipoEquipoRepository.deleteById(id); }
 
 }

@@ -10,20 +10,28 @@ import java.util.List;
 @RestController
 
 @RequestMapping(path = "api/v1/categorias")
+
+@CrossOrigin(origins = "http://localhost:4200")
 public class TipoEquipoController {
 
     @Autowired
-    TipoEquipoService categoriaService;
+    TipoEquipoService tipoEquipoService;
 
     @GetMapping
     public List<TipoEquipo> listar(){
-        return categoriaService.getAll();
+        return tipoEquipoService.getAll();
     }
 
     /*RequestBody - Transforma la peticion del cliente a un objecto de tipo java*/
     @PostMapping
-    public TipoEquipo guardar(@RequestBody TipoEquipo categoria){
-        return categoriaService.save(categoria);
-    }
+    public TipoEquipo guardar(@RequestBody TipoEquipo categoria){ return tipoEquipoService.save(categoria); }
+
+
+    @GetMapping("/{id}")
+    public TipoEquipo obtenerPorId(@PathVariable Long id) { return tipoEquipoService.getById(id); }
+
+
+    @DeleteMapping("/{id}")
+    public void eliminarPorId (@PathVariable Long id){ tipoEquipoService.deleteById(id); }
 
 }
